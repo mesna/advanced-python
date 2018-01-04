@@ -22,6 +22,7 @@ class CsvParser:
                                  price=float(price)) for date, price in raw_data]
 
         greatest_increase_over_prev_day = self.greatest_increase_over_prev_day(price_data)
+        greatest_decrease_over_prev_day = self.greatest_decrease_over_prev_day(price_data)
 
     def greatest_increase_over_prev_day(self, price_data):
         biggest_change = 0
@@ -39,4 +40,22 @@ class CsvParser:
 
         return InfoBit(description="Greatest percent increase over the previous day",
                        value=increase_percentage,
+                       date=date_of_biggest_change)
+
+    def greatest_decrease_over_prev_day(self, price_data):
+        biggest_change = 0
+        date_of_biggest_change = None
+        decrease_percentage = 0
+
+        for i in range(len(price_data) - 1):
+            previous = price_data[i].price
+            current = price_data[i + 1].price
+            change = current - previous
+            if change < biggest_change:
+                biggest_change = change
+                date_of_biggest_change = price_data[i + 1].date
+                decrease_percentage = NumberUtils.calculate_percentage_increase(previous, current)
+
+        return InfoBit(description="Greatest percent decrease over the previous day",
+                       value=decrease_percentage,
                        date=date_of_biggest_change)
