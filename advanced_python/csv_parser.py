@@ -4,6 +4,7 @@ from datetime import datetime
 
 from .number_utils import NumberUtils
 from .info_bit import InfoBit
+from .bitcoin_info import BitcoinInfo
 
 PricePoint = namedtuple('PricePoint', ['date', 'price'])
 
@@ -24,6 +25,8 @@ class CsvParser:
         greatest_increase_over_prev_day = self.greatest_increase_over_prev_day(price_data)
         greatest_decrease_over_prev_day = self.greatest_decrease_over_prev_day(price_data)
         highest_price_in_data = self.highest_price_in_data(price_data)
+
+        return BitcoinInfo(greatest_increase_over_prev_day, greatest_decrease_over_prev_day, highest_price_in_data)
 
     def greatest_increase_over_prev_day(self, price_data):
         biggest_change = 0
