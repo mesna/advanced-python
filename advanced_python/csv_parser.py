@@ -23,6 +23,7 @@ class CsvParser:
 
         greatest_increase_over_prev_day = self.greatest_increase_over_prev_day(price_data)
         greatest_decrease_over_prev_day = self.greatest_decrease_over_prev_day(price_data)
+        highest_price_in_data = self.highest_price_in_data(price_data)
 
     def greatest_increase_over_prev_day(self, price_data):
         biggest_change = 0
@@ -59,3 +60,17 @@ class CsvParser:
         return InfoBit(description="Greatest percent decrease over the previous day",
                        value=decrease_percentage,
                        date=date_of_biggest_change)
+
+    def highest_price_in_data(self, price_data):
+        highest_price = 0
+        date_of_highest_price = None
+
+        for i in range(len(price_data)):
+            price = price_data[i].price
+            if price > highest_price:
+                highest_price = price
+                date_of_highest_price = price_data[i].date
+
+        return InfoBit(description="Highest price in the data",
+                       value=highest_price,
+                       date=date_of_highest_price)
