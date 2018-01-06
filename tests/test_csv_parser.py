@@ -32,11 +32,11 @@ class TestGreatestIncreaseOverPreviousDay(TestCase):
         correct_percentage = NumberUtils.calculate_percentage_increase(price_data[GREATEST_INCREASE_INDEX - 1].price,
                                                                        price_data[GREATEST_INCREASE_INDEX].price)
 
-        self.assertTrue(percentage == correct_percentage,
-                        msg="Correct percentage should be '{}', but it is '{}'".format(percentage, correct_percentage))
-
         self.assertTrue(date == correct_date,
                         msg="Correct date should be '{}', but it is '{}'".format(correct_date, date))
+
+        self.assertTrue(percentage == correct_percentage,
+                        msg="Correct percentage should be '{}', but it is '{}'".format(percentage, correct_percentage))
 
 
 class TestGreatestDecreaseOverPreviousDay(TestCase):
@@ -52,11 +52,12 @@ class TestGreatestDecreaseOverPreviousDay(TestCase):
         correct_percentage = NumberUtils.calculate_percentage_increase(price_data[GREATEST_DECREASE_INDEX - 1].price,
                                                                        price_data[GREATEST_DECREASE_INDEX].price)
 
+        self.assertTrue(date == correct_date,
+                        msg="Correct date should be '{}', but it is '{}'".format(correct_date, date))
+
         self.assertTrue(percentage == correct_percentage,
                         msg="Correct percentage should be '{}', but it is '{}'".format(percentage, correct_percentage))
 
-        self.assertTrue(date == correct_date,
-                        msg="Correct date should be '{}', but it is '{}'".format(correct_date, date))
 
 
 class TestHighestPriceInData(TestCase):
@@ -71,8 +72,9 @@ class TestHighestPriceInData(TestCase):
         correct_date = price_data[HIGHEST_PRICE_IN_DATA_INDEX].date
         correct_price = price_data[HIGHEST_PRICE_IN_DATA_INDEX].price
 
+        self.assertTrue(date == correct_date,
+                        msg="Correct date should be '{}', but it is '{}'".format(correct_date, date))
+
         self.assertTrue(price == correct_price,
                         msg="Correct price should be '{}', but it is '{}'".format(price, correct_price))
 
-        self.assertTrue(date == correct_date,
-                        msg="Correct date should be '{}', but it is '{}'".format(correct_date, date))
