@@ -16,7 +16,7 @@ class CsvParser:
     def parse(self):
         print("Parsing file '{}'.".format(self.__file_path))
 
-        with open(self.__file_path, 'rb') as csv_file:
+        with open(self.__file_path, 'r') as csv_file:
             raw_data = [tuple(line) for line in csv.reader(csv_file)]
 
         price_data = [PricePoint(date=datetime.strptime(date, "%Y-%m-%d %H:%M:%S"),
