@@ -27,15 +27,15 @@ class App:
                                                       highest_price.value(),
                                                       self.format_date(highest_price.date()))
 
-        print "****************************************************************************************************"
-        print "************************************ Bitcoin price information *************************************"
-        print "****************************************************************************************************"
-        print ""
-        print greatest_increase_prev_day_info
-        print greatest_decrease_prev_day_info
-        print highest_price_info
-        print ""
-        print "****************************************************************************************************"
+        print("****************************************************************************************************")
+        print("************************************ Bitcoin price information *************************************")
+        print("****************************************************************************************************")
+        print("")
+        print(greatest_increase_prev_day_info)
+        print(greatest_decrease_prev_day_info)
+        print(highest_price_info)
+        print("")
+        print("****************************************************************************************************")
 
     def format_date(self, datetime):
         return "{}th of {} in year {}".format(datetime.day, datetime.strftime("%b"), datetime.year)

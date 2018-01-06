@@ -14,7 +14,7 @@ class CsvParser:
         self.__file_path = file_path
 
     def parse(self):
-        print "Parsing file '{}'.".format(self.__file_path)
+        print("Parsing file '{}'.".format(self.__file_path))
 
         with open(self.__file_path, 'rb') as csv_file:
             raw_data = [tuple(line) for line in csv.reader(csv_file)]
