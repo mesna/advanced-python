@@ -16,5 +16,10 @@ setup(
     url="https://github.com/mesna/advanced-python",
     packages=['advanced_python', 'tests'],
     long_description=read('README'),
-    zip_safe=False
+    zip_safe=False,
+    entry_points={
+        'console_scripts': [
+            'advanced_python = advanced_python.__main__:main'
+        ]
+    }
 )
