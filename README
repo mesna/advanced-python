@@ -1,1 +1,15 @@
 ### Advanced Python
+
+A simple program that takes the following CSV (https://blockchain.info/charts/market-price) and tells the user the following information:
+  -  What was the greatest percent increase over the previous day, and what day was it
+  -  What was the greatest percent decrease over the previous day, and what day was it
+  -  What is the highest price in the the data, and what day was it
+ 
+ To run the program simply execute ran.bat or ran.sh with the csv file location.
+ Example:
+  - C:\Users\Marko\Documents\Python\advanced-python>run.bat C:\Users\Marko\Downloads\market-price.csv
+  
+ To run the unittests use python -m unittest.
+ Example:
+  - C:\Users\Marko\Documents\Python\advanced-python>python -m unittest
+  
